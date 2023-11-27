@@ -1,5 +1,4 @@
 # %%writefile principal.py
-!pip install sklearn -U
 import pandas as pd
 import streamlit as st
 import seaborn as sns
