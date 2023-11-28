@@ -401,15 +401,21 @@ with st.container():
     col2 = df[label2]
     X = col1
     y = col2
+
+    # Training de model:
     X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=0.4,random_state=46)
     X_train = np.array(X_train).reshape(-1,1)
     X_test = np.array(X_test).reshape(-1,1)
+
+    # Making the Linear Regression 
     lr = LinearRegression()
     lr.fit(X_train,y_train)
     c = lr.intercept_
     m = lr.coef_
     Y_pred_train = m*X_train+c
     y_pred_train1 = lr.predict(X_train)
+
+    # Plot
     fig, ax = plt.subplots(nrows=2)
     ax[0].scatter(x=col1,y=col2)
     ax[0].set_title(f"{label1} x {label2}")
@@ -420,6 +426,7 @@ with st.container():
     ax[1].set_title(f"{label1} x {label2} w/Prediction")
     ax[1].set_ylabel(f"{label2}")
     ax[1].set_xlabel(f"{label1}")
+    plt.style.use("dark_background")
     mae = metrics.mean_absolute_error(y_train,y_pred_train1)
     mse = metrics.mean_squared_error(y_train,y_pred_train1)
     rmse = np.sqrt(mse)
@@ -487,6 +494,7 @@ with st.container():
     st.write(f"R2: {r2}")
     ax[0].grid()
     ax[1].grid()
+    plt.style.use("dark_background")
     plt.tight_layout()
     plt.show()
     st.pyplot(fig)
