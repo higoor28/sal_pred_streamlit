@@ -69,7 +69,7 @@ with st.container():
 
 with st.container():
 
-    st.header("Replacing integer values for gender")
+    st.header("Replacing gender for integer values")
     st.markdown("1-Male, 2-Female")
     code='''
     df["Gender"].replace({"Male":1,"Female":2},inplace=True)
@@ -79,7 +79,7 @@ with st.container():
 
 
 with st.container():
-    st.header("Replacing integer values for Education level:")
+    st.header("Replacing education level for integer values:")
     st.markdown("1-Bachelor's, 2-Master's, 3-PhD")
     code='''
     df["Education Level"].replace({"Bachelor's":1,"Master's":2,"PhD":3},inplace=True)
@@ -229,7 +229,7 @@ with st.container():
         "Mean":means,
     }
     df_jobs = pd.DataFrame(jobs)
-    df_jobs = df_jobs.sort_values(by="Median").reset_index(drop=True)
+    df_jobs = df_jobs.sort_values(by="Mean").reset_index(drop=True)
     df_jobs
 
 
