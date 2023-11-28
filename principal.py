@@ -470,7 +470,7 @@ with st.container():
     ax[1].set_title(f"{label1} x {label2} w/Prediction")
     ax[1].set_ylabel(f"{label2}")
     ax[1].set_xlabel(f"{label1}")
-     mae = metrics.mean_absolute_error(y_train,y_pred_train1)
+    mae = metrics.mean_absolute_error(y_train,y_pred_train1)
     mse = metrics.mean_squared_error(y_train,y_pred_train1)
     rmse = np.sqrt(mse)
     r2 = metrics.r2_score(y_train,y_pred_train1)
