@@ -482,14 +482,11 @@ with st.container():
     if label1 == "Gender":
         ax[0].set_xticks(np.arange(1,3),["Male","Female"],rotation=90,fontsize=8)
         ax[1].set_xticks(np.arange(1,3),["Male","Female"],rotation=90,fontsize=8)
-        st.markdown("As we can see, there is a low correlation between gender and salary, but our dataframe has a few female individuals.")
-        st.markdown("So by the data, we can admit that there is a low correlation between that two variables.")
+        st.markdown("As we can see, there is a low correlation between gender and salary, but our dataframe has a few female individuals. So by the data, we can admit that there is a low correlation between that two variables. Because there are a lot of managers seniors and juniors, for example.")
     if label1 == "Title":
         ax[0].set_xticks(np.arange(0,len(df_jobs["Job"])),df_jobs["Job"],rotation=90,fontsize=8)
         ax[1].set_xticks(np.arange(0,len(df_jobs["Job"])),df_jobs["Job"],rotation=90,fontsize=8)
-        st.markdown("Even thought the prediction shows a bad display of relation between title and salary, by the heatmap above,")
-        st.markdown("We can resolve that there is a correlation, but predict if salary is high or low by the title, we can not assume that.")
-        st.markdown("Because there are a lot of managers seniors and juniors, for example.")
+        st.markdown("Even thought the prediction shows a bad display of relation between title and salary, by the heatmap above, we can resolve that there is a correlation, but predict if salary is high or low by the title, we can not assume that.")
         st.markdown("That thought we can see in the Seniority x Salary prediction ")
     if label1 == "Education Level":
         ax[0].set_xticks(np.arange(1,3.25,0.25),["Bachelor's","","","","Master's","","","","PhD"],rotation=90,fontsize=8)
