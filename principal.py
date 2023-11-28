@@ -196,7 +196,7 @@ with st.container():
     st.code(code, language='python')
     df
 with st.container():
-    st.header("Applying the newly created funcion:")
+    st.header("Applying the newly created function:")
     code='''
     df["Title"] = df["Job Title"].apply(position)
     '''
