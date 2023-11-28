@@ -473,15 +473,31 @@ with st.container():
     if label1 == "Gender":
         ax[0].set_xticks(np.arange(1,3),["Male","Female"],rotation=90,fontsize=8)
         ax[1].set_xticks(np.arange(1,3),["Male","Female"],rotation=90,fontsize=8)
+        st.markdown("As we can see, there is a low correlation between gender and salary, but our dataframe has a few female individuals.")
+        st.markdown("So by the data, we can admit that there is a low correlation between that two variables.")
     if label1 == "Title":
         ax[0].set_xticks(np.arange(0,len(df_jobs["Job"])),df_jobs["Job"],rotation=90,fontsize=8)
         ax[1].set_xticks(np.arange(0,len(df_jobs["Job"])),df_jobs["Job"],rotation=90,fontsize=8)
+        st.markdown("Even thought the prediction shows a bad display of relation between title and salary, by the heatmap above,")
+        st.markdown("We can resolve that there is a correlation, but predict if salary is high or low by the title, we can not assume that.")
+        st.markdown("Because there are a lot of managers seniors and juniors, for example.")
+        st.markdown("That thought we can see in the Seniority x Salary prediction ")
     if label1 == "Education Level":
         ax[0].set_xticks(np.arange(1,3.25,0.25),["Bachelor's","","","","Master's","","","","PhD"],rotation=90,fontsize=8)
         ax[1].set_xticks(np.arange(1,3.25,0.25),["Bachelor's","","","","Master's","","","","PhD"],rotation=90,fontsize=8)
+        st.markdown("As we can see, the Education Level don't guarantee that a person will have a high salary, but in the most cases, will be")
     if label1 == "Seniority":
         ax[0].set_xticks(np.arange(1,3.25,0.25),["Junior","","","","Medior","","","","Senior"],rotation=90,fontsize=8)
         ax[1].set_xticks(np.arange(1,3.25,0.25),["Junior","","","","Medior","","","","Senior"],rotation=90,fontsize=8)
+        st.markdown("As we can assume, how much more Experience Level, more will be the salary") 
+        st.markdown("As Seniority is related with Experience Level, the first will be determinant in salary prediction")
+    if label1 == "Experience Level":
+        st.markdown("As we can assume, how much more Experience Level, more will be the salary") 
+        st.markdown("As Seniority is related with Experience Level, the first will be determinant in salary prediction")
+    if label1 == "Age":
+        st.markdown("As we can assume, how much more Experience Level, more will be the salary") 
+        st.markdown("As Seniority is related with Experience Level, the first will be determinant in salary prediction")
+        st.markdown("The same reasoning can be applied in Age, the high age indicates a big Experience Level, the salary will be high too")
     
     mae = metrics.mean_absolute_error(y_train,y_pred_train1)
     mse = metrics.mean_squared_error(y_train,y_pred_train1)
