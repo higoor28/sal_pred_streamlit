@@ -442,7 +442,7 @@ with st.container():
     st.code(code, language='python')
 
 with st.container():
-    opt = st.selectbox("Choose the variable to do a prediction:",("Age","Gender","Education Level","Years of Experience","Seniority","Title"))
+    opt = st.selectbox("Choose the variable to do a prediction:",("Age","Gender","Education Level","Years of Experience","Seniority"))
     st.write("You selected:", opt)
     label1 = opt # <- Is just put the name of correlated column in that variable for make the prediction 
     label2 = "Salary"
@@ -450,9 +450,6 @@ with st.container():
     col2 = df[label2]
     X = col1
     y = col2
-    if  opt == "Title":
-        X = df_jobs["Job"]
-        y = df_jobs["Median"]
     X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=0.4,random_state=46)
     X_train = np.array(X_train).reshape(-1,1)
     X_test = np.array(X_test).reshape(-1,1)
@@ -485,11 +482,6 @@ with st.container():
         ax[0].set_xticks(np.arange(1,3),["Male","Female"],rotation=90,fontsize=8)
         ax[1].set_xticks(np.arange(1,3),["Male","Female"],rotation=90,fontsize=8)
         st.markdown("As we can see, there is a low correlation between gender and salary, but our dataframe has a few female individuals. So by the data, we can admit that there is a low correlation between that two variables, but this cenario may be change if the dataframe has more females.")
-    if label1 == "Title":
-        ax[0].set_xticks(np.arange(0,len(df_jobs["Job"])),df_jobs["Job"],rotation=90,fontsize=8)
-        ax[1].set_xticks(np.arange(0,len(df_jobs["Job"])),df_jobs["Job"],rotation=90,fontsize=8)
-        st.markdown("Even thought the prediction shows a bad display of relation between title and salary, by the heatmap above, we can resolve that there is a correlation, but predict if salary is high or low by the title, we can not assume that.")
-        st.markdown("That thought we can see in the Seniority x Salary prediction ")
     if label1 == "Education Level":
         ax[0].set_xticks(np.arange(1,3.25,0.25),["Bachelor's","","","","Master's","","","","PhD"],rotation=90,fontsize=8)
         ax[1].set_xticks(np.arange(1,3.25,0.25),["Bachelor's","","","","Master's","","","","PhD"],rotation=90,fontsize=8)
