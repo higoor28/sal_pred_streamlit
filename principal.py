@@ -8,7 +8,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 import sklearn.metrics as metrics
 df = pd.read_csv("Salary_Data.csv")
-st.title("Welcome to Dashboard of Salary Data Prediction :sunglasses:")
+st.title("Welcome to Dashboard of Salary Data Prediction :sunglasses: :chart_with_upwards_trend: :money_mouth_face:")
 st.write("by: H.Marques")
 
 with st.container():
