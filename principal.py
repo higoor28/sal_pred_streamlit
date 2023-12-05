@@ -375,10 +375,10 @@ with st.container():
     st.code(code, language='python')
 
     fig, ax = plt.subplots(figsize=(5,5))
-    sns.histplot(data=df,x="Title",ax=ax)
+    sns.histplot(data=df,x="Title")
     #sns.histplot(data=df,x="Gender",ax=ax)
-    ax.set_title("Frequency of jobs:")
-    ax.set_xticks(np.arange(0,(len(df_jobs["Job"]))),df_jobs["Job"],rotation=90)
+    plt.title("Frequency of jobs:")
+    plt.xticks(np.arange(0,(len(df_jobs["Job"]))),df_jobs["Job"],rotation=90)
     #ax[1].set_title("Frequency of gender:")
     #ax[1].set_xticks([1,2],["Male","Female"])
     st.pyplot(fig)
