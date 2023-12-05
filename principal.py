@@ -259,7 +259,8 @@ with st.container():
     df_jobs = pd.DataFrame(jobs)
     df_jobs = df_jobs.sort_values(by="Mean").reset_index(drop=True)
 
-###
+with st.container():
+    st.markdown("Let's see an exemple to make sure the values match")
 
 with st.container():
     code='''
@@ -302,7 +303,15 @@ with st.container():
 with st.container():
     df_jobs[df_jobs["Job"] == "Engineer"]["Mean"]
 
-    
+with st.container():
+    st.markdown("You can also test the values for your own:")
+    option = st.selectbox(
+    'Choose a title:',
+    ("Clerk","Rep","Copywriter","Associate","Writer","Producer","Support","Assistant","Representative","Accountant","Recruiter","Generalist","Coordinator","Specialist","Developer","Analyst","Advisor","Manager","Researcher","Designer","Architect","Engineer","Consultant","Executive","Scientist","Director","VP","Officer","CEO"))
+    st.write(f"For {option}:")
+    df[df["Title"] == option
+    st.write(df[df["Title"] == option]["Salary"].mean())
+    df_jobs[df_jobs["Job"] == option]["Mean"]
 
 
 with st.container():
