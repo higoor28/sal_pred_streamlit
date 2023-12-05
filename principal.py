@@ -392,7 +392,7 @@ with st.container():
 
 with st.container():
     st.markdown("The median and the mean are almost equivalent. Therefore, there are few outliers in the dataframe. But this will be shown later in the boxplots below")
-    st.markdown("So, for our model, make no diference to use median or mean, by the way, we'll use median.")
+    st.markdown("So, for our model, make no diference to use median or mean, although, we'll use median.")
 with st.container():
     st.header("Seeing dataframe:")
     code='''
