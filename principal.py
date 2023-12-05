@@ -277,7 +277,7 @@ with st.container():
     code='''
     fig, ax = plt.subplots(figsize=(7,7))
     sns.set_color_codes("muted")
-    sns.barplot(data=df_jobs,x="Title",y="Mean",ax=ax)
+    sns.barplot(data=df_jobs,x="Job",y="Mean",ax=ax)
     ax.set_xticks(np.arange(0,(len(df_jobs["Job"]),df["Job"],rotation=90)
     ax.set_title("Means of salaries per title")
     ax.set_yticks(np.arange(0,max(df["Mean"],20000),np.arange(0,max(df["Mean"],20000))
@@ -286,14 +286,14 @@ with st.container():
     st.code(code, language='python')
 
     fig, ax = plt.subplots(figsize=(7,7))
-    sns.set_color_codes("muted")
-    sns.barplot(data=df_jobs,x="Job",y="Mean",ax=ax)
+    sns.barplot(data=df_jobs,x="Job",y="Mean",ax=ax,palette="Dark")
     ax.set_title("Means of salaries per title")
     ax.set_yticks(np.arange(0,max(df_jobs["Mean"])+20000,20000),np.arange(0,max(df_jobs["Mean"])+20000,20000))
     ax.set_xticks(np.arange(0,(len(df_jobs["Job"]))),df_jobs["Job"],rotation=90)
     st.pyplot(fig)
     
 with st.container():
+    st.markdown("The dataframe of the plot above:")
     df_jobs
 
 with st.container():
@@ -333,11 +333,51 @@ with st.container():
     }
     df_jobs = pd.DataFrame(jobs)
     df_jobs = df_jobs.sort_values(by="Median").reset_index(drop=True)
+    
+with st.container():
+    st.markdown("Now, let's see the median plot: ")
+with st.container():
+    code='''
+    fig, ax = plt.subplots(figsize=(7,7))
+    sns.barplot(data=df_jobs,x="Job",y="Median",ax=ax)
+    ax.set_xticks(np.arange(0,(len(df_jobs["Job"]),df["Job"],rotation=90)
+    ax.set_title("Medians of salaries per title")
+    ax.set_yticks(np.arange(0,max(df["Median"],20000),np.arange(0,max(df["Median"],20000))
+    ax.set_xticks(np.arange(0,(len(df_jobs["Job"]),df["Job"],rotation=90)
+    '''
+    st.code(code, language='python')
+
+    fig, ax = plt.subplots(figsize=(7,7))
+    sns.barplot(data=df_jobs,x="Job",y="Median",ax=ax,palette="Dark")
+    ax.set_title("Medians of salaries per title")
+    ax.set_yticks(np.arange(0,max(df_jobs["Median"])+20000,20000),np.arange(0,max(df_jobs["Median"])+20000,20000))
+    ax.set_xticks(np.arange(0,(len(df_jobs["Job"]))),df_jobs["Job"],rotation=90)
+    st.pyplot(fig)
+with st.container():
+    st.markdown("The median and the mean are almost equivalent.Therefore, there are few outliers in the dataframe. But this will be shown later in the boxplots below")
+    st.markdown("So, for our model, make no diference to use median or mean, by the way, we'll use median.")
 
 with st.container():
-    st.markdown("The median and the mean are almost equivalent.Therefore, there are few outliers in the dataframe.")
-    st.markdown("So, for our model, make no diference to use median or mean, by the way we'll use median.")
-    
+    st.markdown("Now, let's see the frequency of titles.")
+with st.container():
+    code='''
+    fig, ax = plt.subplots(figsize=(5,5),nrows=2)
+    sns.histplot(data=df,x="Title",y="Salary",ax=ax[0])
+    sns.histplot(data=df,x="Title",y="Salary",ax=ax[1])
+    ax[0].set_title("Frequency of jobs:")
+    ax[0].set_xticks(np.arange(0,(len(df_jobs["Job"]))),df_jobs["Job"],rotation=90)
+    ax[1].set_title("Frequency of gender:")
+    ax[1].set_xticks([1,2],["Male","Female")
+    st.pyplot(fig)
+    '''
+    st.code(code, language='python')
+
+    fig, ax = plt.subplots(figsize=(7,7))
+    sns.barplot(data=df_jobs,x="Job",y="Median",ax=ax,palette="Dark")
+    ax.set_title("Medians of salaries per title")
+    ax.set_yticks(np.arange(0,max(df_jobs["Median"])+20000,20000),np.arange(0,max(df_jobs["Median"])+20000,20000))
+    ax.set_xticks(np.arange(0,(len(df_jobs["Job"]))),df_jobs["Job"],rotation=90)
+    st.pyplot(fig)
 with st.container():
     st.header("Seeing dataframe:")
     code='''
