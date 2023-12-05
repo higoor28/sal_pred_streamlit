@@ -262,7 +262,6 @@ with st.container():
     df[df["Title"] == "Writer"]["Salary"].mean()
     '''
     st.code(code, language='python')
-with st.container():
     st.write(df[df["Title"] == "Writer"]["Salary"].mean())
 with st.container():
     code='''
@@ -283,7 +282,6 @@ with st.container():
     df[df["Title"] == "Engineer"]["Salary"].mean()
     '''
     st.code(code, language='python')
-with st.container():
     st.write(df[df["Title"] == "Engineer"]["Salary"].mean())
 with st.container():
     code='''
