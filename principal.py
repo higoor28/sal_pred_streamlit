@@ -271,6 +271,18 @@ with st.container():
     st.write(df[df["Title"] == "Engineer"]["Salary"].mean())
     df_jobs[df_jobs["Job"] == "Engineer"]["Mean"]
     st.markdown("The values appear to match, so we will continue our analysis")
+
+with st.container():
+    st.markdown("Let's see the mean of salaries per title: ")
+    code='''
+    fig, ax = plt.subplots(figsize=(10,10)
+    sns.barplot(data=df_jobs,x="Title",y="Mean",ax=ax)
+    
+    '''
+    st.code(code, language='python')
+
+    fig, ax = plt.subplots(figsize=(10,10)
+    sns.barplot(data=df_jobs,x="Title",y="Mean",ax=ax)
     
 with st.container():
     df_jobs
