@@ -23,7 +23,7 @@ st.title(" Welcome to Dashboard of Salary Data Prediction :sunglasses: :chart_wi
 st.write("by: H.Marques")
 
 with st.container():
-    st.header("Import the packages:")
+    st.header("Importing the packages:")
     code = '''
     import pandas as pd
     import seaborn as sns
@@ -151,7 +151,7 @@ with st.container():
     df["Seniority"] = df["Job Title"].apply(seniority)
 
 with st.container():
-    st.header("Now we'll solve the nullable values in the seniority column newly created:")
+    st.header("Now we're solving the nullable values in the seniority column newly created:")
     st.markdown("For most companies, who got 5 or less years of experience is junior, between 5 and 10 is medior, and 10+ is senior ")
     code='''
     for row in range(len(df["Seniority"])):
@@ -215,7 +215,7 @@ with st.container():
 
     df["Title"] = df["Job Title"].apply(position)
 with st.container():
-    st.header("Let's see the dataframe again to verify the new column:")
+    st.header("Seeing the dataframe again to verify the new column:")
     code='''
     df
         '''
