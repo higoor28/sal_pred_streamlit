@@ -247,29 +247,57 @@ with st.container():
     }
     df_jobs = pd.DataFrame(jobs)
     df_jobs = df_jobs.sort_values(by="Mean").reset_index(drop=True)
-with st.container():
-    st.markdown("Let's comparate some values of principal dataframe with the means of the new dataframe. ")
-    code='''
-    # we will take the values of Writer and Engineer:
-    df[df["Title"] == "Writer"]
-    df[df["Title"] == "Writer"]["Salary"].mean()
-    df_jobs[df_jobs["Job"] == "Writer"]["Mean"]
-    #
-    df[df["Title"] == "Engineer"]
-    df[df["Title"] == "Engineer"]["Salary"].mean()
-    df_jobs[df_jobs["Job"] == "Engineer"]["Mean"]
 
+###
+
+with st.container():
+    code='''
+    df[df["Title"] == "Writer"]
+    '''
+    st.code(code, language='python')
+with st.container():
+    code='''
+    df[df["Title"] == "Writer"]["Salary"].mean()
+    '''
+    st.code(code, language='python')
+with st.container():
+    code='''
+    df_jobs[df_jobs["Job"] == "Writer"]["Mean"]
+    '''
+    st.code(code, language='python')
+with st.container():
+    code='''
+    df[df["Title"] == "Engineer"]
+    '''
+    st.code(code, language='python')
+with st.container():
+    code='''
+    df[df["Title"] == "Engineer"]["Salary"].mean()
+    '''
+    st.code(code, language='python')
+with st.container():
+    code='''
+    df[df["Title"] == "Engineer"]["Salary"].mean()
     '''
     st.code(code, language='python')
 
-    # we will take the values of Writer and Engineer:
+
+with st.container():
     df[df["Title"] == "Writer"]
-    st.write(df[df["Title"] == "Writer"]["Salary"].mean())
+with st.container():
+    df[df["Title"] == "Writer"]["Salary"].mean()
+with st.container():
     df_jobs[df_jobs["Job"] == "Writer"]["Mean"]
-    #
+with st.container():
     df[df["Title"] == "Engineer"]
-    st.write(df[df["Title"] == "Engineer"]["Salary"].mean())
+with st.container():
+    df[df["Title"] == "Engineer"]["Salary"].mean()
+with st.container():
     df_jobs[df_jobs["Job"] == "Engineer"]["Mean"]
+    
+
+
+with st.container():
     st.markdown("The values appear to match, so we will continue our analysis")
 
 with st.container():
@@ -353,17 +381,6 @@ with st.container():
     ax.set_title("Medians of salaries per title")
     ax.set_yticks(np.arange(0,max(df_jobs["Median"])+20000,20000),np.arange(0,max(df_jobs["Median"])+20000,20000))
     ax.set_xticks(np.arange(0,(len(df_jobs["Job"]))),df_jobs["Job"],rotation=90)
-    st.pyplot(fig)
-with st.container():
-    st.markdown("Let's see some relations: ")
-    code='''
-    fig, ax = plt.subplots(figsize=(7,7))
-    sns.barplot(data=df,x="Education Level",y="Salary",ax=ax,hue="Gender",col="Seniority")
-    '''
-    st.code(code, language='python')
-with st.container():
-    fig, ax = plt.subplots(figsize=(7,7))
-    sns.barplot(df,x="Education Level",y="Salary",ax=ax,hue="Gender",col="Seniority")
     st.pyplot(fig)
 
 with st.container():
