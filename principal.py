@@ -225,7 +225,7 @@ with st.container():
     col = []
     means = []
     for i in range (len(df["Title"].unique())):
-        means.append(df[df["Title"] == df["Title"][i]]["Salary"].mean())
+        means.append(df[df["Title"] == df["Title"].unique()[i]]["Salary"].mean())
         col.append(df["Title"].unique()[i])
 with st.container():
     code='''
@@ -246,7 +246,7 @@ with st.container():
         "Mean":means,
     }
     df_jobs = pd.DataFrame(jobs)
-    #df_jobs = df_jobs.sort_values(by="Mean").reset_index(drop=True)
+    df_jobs = df_jobs.sort_values(by="Mean").reset_index(drop=True)
 with st.container():
     st.markdown("Let's comparate some values of principal dataframe with the means of the new dataframe. ")
     code='''
