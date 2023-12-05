@@ -54,7 +54,7 @@ with st.container():
 
 with st.container():
 
-    st.header("Transformating Age,Years of XP and Salary columns to int64 format")
+    st.header("Transformating Age, Years of XP and Salary columns to int64 format")
 
     code='''
     df["Age"] = df["Age"].astype(np.int64)
@@ -354,6 +354,24 @@ with st.container():
     ax.set_yticks(np.arange(0,max(df_jobs["Median"])+20000,20000),np.arange(0,max(df_jobs["Median"])+20000,20000))
     ax.set_xticks(np.arange(0,(len(df_jobs["Job"]))),df_jobs["Job"],rotation=90)
     st.pyplot(fig)
+with st.container():
+    st.markdown("Let's see some relations: ")
+    code='''
+    fig, ax = plt.subplots(figsize=(7,7))
+    sns.barplot(data=df,x="Education Level",y="Salary",ax=ax,hue="Gender",col="Seniority")
+    '''
+    st.code(code, language='python')
+    fig, ax = plt.subplots(figsize=(7,7))
+    sns.barplot(data=df,x="Education Level",y="Salary",ax=ax,hue="Gender",col="Seniority")
+    st.pyplot(fig)
+with st.container():
+    fig, ax = plt.subplots(figsize=(7,7))
+    sns.barplot(data=df_jobs,x="Job",y="Median",ax=ax)
+    ax.set_title("Medians of salaries per title")
+    ax.set_yticks(np.arange(0,max(df_jobs["Median"])+20000,20000),np.arange(0,max(df_jobs["Median"])+20000,20000))
+    ax.set_xticks(np.arange(0,(len(df_jobs["Job"]))),df_jobs["Job"],rotation=90)
+    st.pyplot(fig)
+
 
 with st.container():
     st.markdown("The median and the mean are almost equivalent.Therefore, there are few outliers in the dataframe. But this will be shown later in the boxplots below")
