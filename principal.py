@@ -27,12 +27,12 @@ with st.container():
 
 with st.container():
     df = pd.read_csv("Salary_Data.csv")
-    df
     st.header("Reading the CSV:")
     code = '''
     df = pd.read_csv("Salary_Data.csv")
             '''
     st.code(code, language='python')
+    df
 
 with st.container():
     st.header("Droping the null values, because they're full nullable rows:")
