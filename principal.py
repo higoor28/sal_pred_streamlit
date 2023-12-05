@@ -362,7 +362,7 @@ with st.container():
     '''
     st.code(code, language='python')
     fig, ax = plt.subplots(figsize=(7,7))
-    sns.barplot(data=df,x="Education Level",y="Salary",ax=ax,hue="Gender",col="Seniority")
+    sns.barplot(df,x="Education Level",y="Salary",ax=ax,hue="Gender",col="Seniority")
     st.pyplot(fig)
 with st.container():
     fig, ax = plt.subplots(figsize=(7,7))
@@ -374,7 +374,7 @@ with st.container():
 
 
 with st.container():
-    st.markdown("The median and the mean are almost equivalent.Therefore, there are few outliers in the dataframe. But this will be shown later in the boxplots below")
+    st.markdown("The median and the mean are almost equivalent. Therefore, there are few outliers in the dataframe. But this will be shown later in the boxplots below")
     st.markdown("So, for our model, make no diference to use median or mean, by the way, we'll use median.")
 with st.container():
     st.header("Seeing dataframe:")
