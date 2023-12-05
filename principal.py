@@ -264,12 +264,12 @@ with st.container():
 
     # we will take the values of Writer and CEO:
     df[df["Title"] == "Writer"]
-    df[df["Title"] == "Writer"]["Salary"].mean()
-    df_jobs["Mean"][0]
+    print(df[df["Title"] == "Writer"]["Salary"].mean())
+    print(df_jobs["Mean"][0])
     #
     df[df["Title"] == "CEO"]
-    df[df["Title"] == "CEO"]["Salary"].mean()
-    df_jobs["Mean"][18]
+    print(df[df["Title"] == "CEO"]["Salary"].mean())
+    print(df_jobs["Mean"][18])
     
 with st.container():
     df_jobs
@@ -312,13 +312,6 @@ with st.container():
     df_jobs = df_jobs.sort_values(by="Median").reset_index(drop=True)
 
 with st.container():
-    code='''
-    df_jobs = df_jobs.sort_values(by="Median").reset_index(drop=True)
-    df_jobs
-    '''
-    st.code(code, language='python')
-    df_jobs = df_jobs.sort_values(by="Median").reset_index(drop=True)
-    df_jobs
     st.markdown("The median and the mean are almost equivalent.Therefore, there are few outliers in the dataframe.")
     st.markdown("So, for our model, make no diference to use median or mean, by the way we'll use median.")
     
