@@ -8,7 +8,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 import sklearn.metrics as metrics
 df = pd.read_csv("Salary_Data.csv")
-st.title(" :money_mouth_face: Welcome to Dashboard of Salary Data Prediction :sunglasses: :chart_with_upwards_trend: ")
+st.title(" Welcome to Dashboard of Salary Data Prediction :sunglasses: :chart_with_upwards_trend: :money_mouth_face: ")
 st.write("by: H.Marques")
 
 with st.container():
@@ -314,21 +314,6 @@ with st.container():
     ax.set_title("Means of salaries per title")
     ax.set_yticks(np.arange(0,max(df_jobs["Mean"])+20000,20000),np.arange(0,max(df_jobs["Mean"])+20000,20000))
     ax.set_xticks(np.arange(0,(len(df_jobs["Job"]))),df_jobs["Job"],rotation=90)
-    st.pyplot(fig)
-with st.container():
-    code='''
-    fig, ax = plt.subplots(figsize=(7,7))
-    sns.barplot(data=df_jobs,x="Job",y="Mean",ax=ax)
-    ax.set_xticks(np.arange(0,(len(df_jobs["Job"]),df["Job"],rotation=90)
-    ax.set_title("Means of salaries per title")
-    ax.set_yticks(np.arange(0,max(df["Mean"],20000),np.arange(0,max(df["Mean"],20000))
-    ax.set_xticks(np.arange(0,(len(df_jobs["Job"]),df["Job"],rotation=90)
-    '''
-#   st.code(code, language='python')
-
-    fig, ax = plt.subplots(figsize=(7,7))
-    sns.histplot(data=df,x="Title",y="Salary",ax=ax)
-    ax.set_title("Title x Salary")
     st.pyplot(fig)
     
 with st.container():
