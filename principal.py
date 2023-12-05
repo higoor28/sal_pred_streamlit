@@ -217,7 +217,7 @@ with st.container():
     col = []
     means = []
     for i in range (len(df["Title"].unique())):
-        means.append(df[df["Title"] == df["Title"][i]]["Salary"].mean())
+        means.append(df[df["Title"] == df["Title"].unique()[i]]["Salary"].mean())
         col.append(df["Title"].unique()[i])
     '''
     st.code(code, language='python')
@@ -250,26 +250,27 @@ with st.container():
 with st.container():
     st.markdown("Let's comparate some values of principal dataframe with the means of the new dataframe. ")
     code='''
-    # we will take the values of Writer and CEO:
+    # we will take the values of Writer and Engineer:
     df[df["Title"] == "Writer"]
     df[df["Title"] == "Writer"]["Salary"].mean()
-    df_jobs["Mean"][0]
+    df_jobs[df_jobs["Job"] == "Writer"]["Mean"]
     #
-    df[df["Title"] == "CEO"]
-    df[df["Title"] == "CEO"]["Salary"].mean()
-    df_jobs["Mean"][18]
+    df[df["Title"] == "Engineer"]
+    df[df["Title"] == "Engineer"]["Salary"].mean()
+    df_jobs[df_jobs["Job"] == "Engineer"]["Mean"]
 
     '''
     st.code(code, language='python')
 
-    # we will take the values of Writer and CEO:
+    # we will take the values of Writer and Engineer:
     df[df["Title"] == "Writer"]
     st.write(df[df["Title"] == "Writer"]["Salary"].mean())
-    st.write(df_jobs["Mean"][0])
+    df_jobs[df_jobs["Job"] == "Writer"]["Mean"]
     #
-    df[df["Title"] == "CEO"]
-    st.write(df[df["Title"] == "CEO"]["Salary"].mean())
-    st.write(df_jobs["Mean"][18])
+    df[df["Title"] == "Engineer"]
+    st.write(df[df["Title"] == "Engineer"]["Salary"].mean())
+    df_jobs[df_jobs["Job"] == "Engineer"]["Mean"]
+    st.markdown("The values appear to match, so we will continue our analysis")
     
 with st.container():
     df_jobs
@@ -280,11 +281,12 @@ with st.container():
     col = []
     medians = []
     for i in range (len(df["Title"].unique())):
-        medians.append(df[df["Title"] == df["Title"][i]]["Salary"].np.median())
+        means.append(df[df["Title"] == df["Title"].unique()[i]]["Salary"].np.median())
         col.append(df["Title"].unique()[i])
     df_jobs
     '''
     st.code(code, language="python")
+    st.markdown("The method to form the mean and median dataframes are the same, so we don't need to comparate values")
 
 with st.container():
     code='''
@@ -301,7 +303,7 @@ with st.container():
     col = []
     medians = []
     for i in range (len(df["Title"].unique())):
-       medians.append(df[df["Title"] == df["Title"][i]]["Salary"].median())
+       means.append(df[df["Title"] == df["Title"].unique()[i]]["Salary"]np.median())
        col.append(df["Title"].unique()[i])
 
     jobs = {
