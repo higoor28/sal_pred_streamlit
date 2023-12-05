@@ -204,7 +204,7 @@ with st.container():
 
     df["Title"] = df["Job Title"].apply(position)
 with st.container():
-    st.header("Let's see the dataframe again ro verify the new column:")
+    st.header("Let's see the dataframe again to verify the new column:")
     code='''
     df
         '''
@@ -227,7 +227,30 @@ with st.container():
     for i in range (len(df["Title"].unique())):
         means.append(df[df["Title"] == df["Title"][i]]["Salary"].mean())
         col.append(df["Title"].unique()[i])
+with st.container():
+    st.markdown("Let's comparate some values of principal dataframe with the means of the new dataframe. ")
+    code='''
+    # we will take the values of Writer and CEO:
+    df[df["Job"] == "Write"]
+    print(f"Mean of "Write" title in principal dataframe: {df[df["Job"] == "Write"]["Salary"].mean()})
+    print(f"Mean of "Write" title in the dataframe newly created: {df_jobs["Mean"][0]}) 
+    #
+    df[df["Job"] == "CEO"]
+    print(f"Mean of "Write" title in principal dataframe: {df[df["Job"] == "CEO"]["Salary"].mean()})
+    print(f"Mean of "Write" title in the dataframe newly created: {df_jobs["Mean"][18]}) 
 
+    
+    '''
+    st.code(code, language='python')
+
+    # we will take the values of Writer and CEO:
+    df[df["Job"] == "Write"]
+    print(f"Mean of Write title in principal dataframe: {df[df["Job"] == "Write"]["Salary"].mean()}")
+    print(f"Mean of Write title in the dataframe newly created: {df_jobs["Mean"][0]}") 
+    #
+    df[df["Job"] == "CEO"]
+    print(f"Mean of Write title in principal dataframe: {df[df["Job"] == "CEO"]["Salary"].mean()}")
+    print(f"Mean of Write title in the dataframe newly created: {df_jobs["Mean"][18]}") 
 
 with st.container():
     code='''
