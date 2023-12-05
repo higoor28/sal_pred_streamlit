@@ -325,7 +325,7 @@ with st.container():
     df
 with st.container():
 
-    st.header("Making a astype in Title column to guarantee that values are integers.")
+    st.header("Making an astype in Title column to guarantee those values are integers.")
     code='''
     df["Title"] = df["Title"].astype(np.int64)
     '''
@@ -448,9 +448,11 @@ with st.container():
     label2 = "Salary"
     col1 = df[label1]
     col2 = df[label2]
-
     X = col1
     y = col2
+    if  opt == "Title":
+        X = df_jobs["Job"]
+        y = df_jobs["Median"]
     X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=0.4,random_state=46)
     X_train = np.array(X_train).reshape(-1,1)
     X_test = np.array(X_test).reshape(-1,1)
@@ -482,7 +484,7 @@ with st.container():
     if label1 == "Gender":
         ax[0].set_xticks(np.arange(1,3),["Male","Female"],rotation=90,fontsize=8)
         ax[1].set_xticks(np.arange(1,3),["Male","Female"],rotation=90,fontsize=8)
-        st.markdown("As we can see, there is a low correlation between gender and salary, but our dataframe has a few female individuals. So by the data, we can admit that there is a low correlation between that two variables. Because there are a lot of managers seniors and juniors, for example.")
+        st.markdown("As we can see, there is a low correlation between gender and salary, but our dataframe has a few female individuals. So by the data, we can admit that there is a low correlation between that two variables, but this cenario may be change if the dataframe has more females.")
     if label1 == "Title":
         ax[0].set_xticks(np.arange(0,len(df_jobs["Job"])),df_jobs["Job"],rotation=90,fontsize=8)
         ax[1].set_xticks(np.arange(0,len(df_jobs["Job"])),df_jobs["Job"],rotation=90,fontsize=8)
@@ -503,7 +505,7 @@ with st.container():
     if label1 == "Age":
         st.markdown("As we can assume, how much more Experience Level, more will be the salary") 
         st.markdown("As Seniority is related with Experience Level, the first will be determinant in salary prediction")
-        st.markdown("The same reasoning can be applied in Age, the high age indicates a big Experience Level, the salary will be high too")
+        st.markdown("The same reasoning can be applied in Age, the high age indicates a big Experience Level. So, the salary will be high too")
     
     ax[0].grid()
     ax[1].grid()
