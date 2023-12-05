@@ -228,30 +228,6 @@ with st.container():
         means.append(df[df["Title"] == df["Title"][i]]["Salary"].mean())
         col.append(df["Title"].unique()[i])
 with st.container():
-    st.markdown("Let's comparate some values of principal dataframe with the means of the new dataframe. ")
-    code='''
-    # we will take the values of Writer and CEO:
-    df[df["Title"] == "Write"]
-    df[df["Title"] == "Write"]["Salary"].mean()
-    df_jobs["Mean"][0]
-    #
-    df[df["Title"] == "CEO"]
-    df[df["Title"] == "CEO"]["Salary"].mean()
-    df_jobs["Mean"][18]
-
-    '''
-    st.code(code, language='python')
-
-    # we will take the values of Writer and CEO:
-    df[df["Title"] == "Write"]
-    df[df["Title"] == "Write"]["Salary"].mean()
-    df_jobs["Mean"][0]
-    #
-    df[df["Title"] == "CEO"]
-    df[df["Title"] == "CEO"]["Salary"].mean()
-    df_jobs["Mean"][18]
-
-with st.container():
     code='''
     jobs = {
         "Job":col,
@@ -271,6 +247,30 @@ with st.container():
     }
     df_jobs = pd.DataFrame(jobs)
     df_jobs = df_jobs.sort_values(by="Mean").reset_index(drop=True)
+with st.container():
+    st.markdown("Let's comparate some values of principal dataframe with the means of the new dataframe. ")
+    code='''
+    # we will take the values of Writer and CEO:
+    df[df["Title"] == "Writer"]
+    df[df["Title"] == "Writer"]["Salary"].mean()
+    df_jobs["Mean"][0]
+    #
+    df[df["Title"] == "CEO"]
+    df[df["Title"] == "CEO"]["Salary"].mean()
+    df_jobs["Mean"][18]
+
+    '''
+    st.code(code, language='python')
+
+    # we will take the values of Writer and CEO:
+    df[df["Title"] == "Writer"]
+    df[df["Title"] == "Writer"]["Salary"].mean()
+    df_jobs["Mean"][0]
+    #
+    df[df["Title"] == "CEO"]
+    df[df["Title"] == "CEO"]["Salary"].mean()
+    df_jobs["Mean"][18]
+    
 with st.container():
     df_jobs
 
