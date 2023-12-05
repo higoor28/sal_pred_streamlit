@@ -232,12 +232,12 @@ with st.container():
     code='''
     # we will take the values of Writer and CEO:
     df[df["Job"] == "Write"]
-    print(f"Mean of "Write" title in principal dataframe: {df[df["Job"] == "Write"]["Salary"].mean()})
-    print(f"Mean of "Write" title in the dataframe newly created: {df_jobs["Mean"][0]}) 
+    print(f"{df[df["Job"] == "Write"]["Salary"].mean()})
+    print(f"{df_jobs["Mean"][0]}) 
     #
     df[df["Job"] == "CEO"]
-    print(f"Mean of "Write" title in principal dataframe: {df[df["Job"] == "CEO"]["Salary"].mean()})
-    print(f"Mean of "Write" title in the dataframe newly created: {df_jobs["Mean"][18]}) 
+    print(f"{df[df["Job"] == "CEO"]["Salary"].mean()}")
+    print(f"{df_jobs["Mean"][18]}") 
 
     
     '''
@@ -245,12 +245,12 @@ with st.container():
 
     # we will take the values of Writer and CEO:
     df[df["Job"] == "Write"]
-    print(f"Mean of Write title in principal dataframe: {df[df["Job"] == "Write"]["Salary"].mean()}")
-    print(f"Mean of Write title in the dataframe newly created: {df_jobs["Mean"][0]}") 
+    df[df["Job"] == "Write"]["Salary"].mean()
+    df_jobs["Mean"][0]
     #
     df[df["Job"] == "CEO"]
-    print(f"Mean of Write title in principal dataframe: {df[df["Job"] == "CEO"]["Salary"].mean()}")
-    print(f"Mean of Write title in the dataframe newly created: {df_jobs["Mean"][18]}") 
+    df[df["Job"] == "CEO"]["Salary"].mean()
+    df_jobs["Mean"][18]
 
 with st.container():
     code='''
