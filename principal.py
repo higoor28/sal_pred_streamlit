@@ -210,7 +210,7 @@ with st.container():
     col = []
     means = []
     for i in range (len(df["Title"].unique())):
-        if means.append(df[df["Title"] == df["Title"][i]]["Salary"].mean())
+        if means.append(df[df["Title"] == df["Title"][i]]["Salary"].mean()):
             col.append(df["Title"].unique()[i])
     '''
     st.code(code, language='python')
@@ -218,7 +218,7 @@ with st.container():
     col = []
     means = []
     for i in range (len(df["Title"].unique())):
-        if means.append(df[df["Title"] == df["Title"][i]]["Salary"].mean())
+        if means.append(df[df["Title"] == df["Title"][i]]["Salary"].mean()):
             col.append(df["Title"].unique()[i])
 
 
@@ -251,7 +251,7 @@ with st.container():
     col = []
     medians = []
     for i in range (len(df["Title"].unique())):
-        medians.append(df[df["Title"] == df["Title"][i]]["Salary"].np.median())
+        medians.append(df[df["Title"] == df["Title"][i]]["Salary"].np.median()):
         col.append(df["Title"].unique()[i])
     df_jobs
     '''
@@ -272,7 +272,7 @@ with st.container():
     col = []
     medians = []
     for i in range (len(df["Title"].unique())):
-       if medians.append(df[df["Title"] == df["Title"][i]]["Salary"].median())
+       if medians.append(df[df["Title"] == df["Title"][i]]["Salary"].median()):
             col.append(df["Title"].unique()[i])
 
     jobs = {
