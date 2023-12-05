@@ -256,44 +256,43 @@ with st.container():
     '''
     st.code(code, language='python')
 with st.container():
-    code='''
-    df[df["Title"] == "Writer"]["Salary"].mean()
-    '''
-    st.code(code, language='python')
-with st.container():
-    code='''
-    df_jobs[df_jobs["Job"] == "Writer"]["Mean"]
-    '''
-    st.code(code, language='python')
-with st.container():
-    code='''
-    df[df["Title"] == "Engineer"]
-    '''
-    st.code(code, language='python')
-with st.container():
-    code='''
-    df[df["Title"] == "Engineer"]["Salary"].mean()
-    '''
-    st.code(code, language='python')
-with st.container():
-    code='''
-    df[df["Title"] == "Engineer"]["Salary"].mean()
-    '''
-    st.code(code, language='python')
-
-
-with st.container():
     df[df["Title"] == "Writer"]
 with st.container():
+    code='''
     df[df["Title"] == "Writer"]["Salary"].mean()
+    '''
+    st.code(code, language='python')
+with st.container():
+    df[df["Title"] == "Writer"]["Salary"].mean()
+with st.container():
+    code='''
+    df_jobs[df_jobs["Job"] == "Writer"]["Mean"]
+    '''
+    st.code(code, language='python')
 with st.container():
     df_jobs[df_jobs["Job"] == "Writer"]["Mean"]
 with st.container():
+    code='''
     df[df["Title"] == "Engineer"]
+    '''
+    st.code(code, language='python')
+with st.container():
+    df[df["Title"] == "Engineer"]
+with st.container():
+    code='''
+    df[df["Title"] == "Engineer"]["Salary"].mean()
+    '''
+    st.code(code, language='python')
 with st.container():
     df[df["Title"] == "Engineer"]["Salary"].mean()
 with st.container():
+    code='''
+    df[df["Title"] == "Engineer"]["Salary"].mean()
+    '''
+    st.code(code, language='python')
+with st.container():
     df_jobs[df_jobs["Job"] == "Engineer"]["Mean"]
+
     
 
 
