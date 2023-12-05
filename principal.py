@@ -309,7 +309,7 @@ with st.container():
     'Choose a title:',
     ("Clerk","Rep","Copywriter","Associate","Writer","Producer","Support","Assistant","Representative","Accountant","Recruiter","Generalist","Coordinator","Specialist","Developer","Analyst","Advisor","Manager","Researcher","Designer","Architect","Engineer","Consultant","Executive","Scientist","Director","VP","Officer","CEO"))
     st.write(f"For {option}:")
-    df[df["Title"] == option
+    df[df["Title"] == option]
     st.write(df[df["Title"] == option]["Salary"].mean())
     df_jobs[df_jobs["Job"] == option]["Mean"]
 
