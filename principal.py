@@ -277,12 +277,18 @@ with st.container():
     code='''
     fig, ax = plt.subplots(figsize=(10,10))
     sns.barplot(data=df_jobs,x="Title",y="Mean",ax=ax)
-    
+    ax.set_xticks(np.arange(0,(len(df_jobs["Job"]),df["Job"],rotation=90)
+    ax.set_title("Means of salaries per title")
+    ax.set_yticks(np.arange(0,max(df["Mean"],20000),np.arange(0,max(df["Mean"],20000))
+    ax.set_xticks(np.arange(0,(len(df_jobs["Job"]),df["Job"],rotation=90)
     '''
     st.code(code, language='python')
 
     fig, ax = plt.subplots(figsize=(10,10))
     sns.barplot(data=df_jobs,x="Job",y="Mean",ax=ax)
+    ax.set_title("Means of salaries per title")
+    ax.set_yticks(np.arange(0,max(df["Mean"],20000),np.arange(0,max(df["Mean"],20000))
+    ax.set_xticks(np.arange(0,(len(df_jobs["Job"]),df["Job"],rotation=90)
     st.pyplot(fig)
     
 with st.container():
