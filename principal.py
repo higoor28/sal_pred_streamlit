@@ -203,6 +203,13 @@ with st.container():
     st.code(code, language='python')
 
     df["Title"] = df["Job Title"].apply(position)
+with st.container():
+    st.header("Let's see the dataframe again ro verify the new column:")
+    code='''
+    df
+        '''
+    st.code(code, language='python')
+    df
 
 with st.container():
     st.markdown("Now, we'll group the mean values for each title for sort that values and replace them by integer values: ")
