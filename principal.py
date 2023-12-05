@@ -283,6 +283,7 @@ with st.container():
 
     fig, ax = plt.subplots(figsize=(10,10))
     sns.barplot(data=df_jobs,x="Job",y="Mean",ax=ax)
+    st.pyplot(fig)
     
 with st.container():
     df_jobs
