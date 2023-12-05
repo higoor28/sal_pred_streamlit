@@ -264,12 +264,12 @@ with st.container():
 
     # we will take the values of Writer and CEO:
     df[df["Title"] == "Writer"]
-    print(df[df["Title"] == "Writer"]["Salary"].mean())
-    print(df_jobs["Mean"][0])
+    st.write(df[df["Title"] == "Writer"]["Salary"].mean())
+    st.write(df_jobs["Mean"][0])
     #
     df[df["Title"] == "CEO"]
-    print(df[df["Title"] == "CEO"]["Salary"].mean())
-    print(df_jobs["Mean"][18])
+    st.write(df[df["Title"] == "CEO"]["Salary"].mean())
+    st.write(df_jobs["Mean"][18])
     
 with st.container():
     df_jobs
