@@ -275,13 +275,13 @@ with st.container():
 with st.container():
     st.markdown("Let's see the mean of salaries per title: ")
     code='''
-    fig, ax = plt.subplots(figsize=(10,10)
+    fig, ax = plt.subplots(figsize=(10,10))
     sns.barplot(data=df_jobs,x="Title",y="Mean",ax=ax)
     
     '''
     st.code(code, language='python')
 
-    fig, ax = plt.subplots(figsize=(10,10)
+    fig, ax = plt.subplots(figsize=(10,10))
     sns.barplot(data=df_jobs,x="Title",y="Mean",ax=ax)
     
 with st.container():
