@@ -303,7 +303,7 @@ with st.container():
     col = []
     medians = []
     for i in range (len(df["Title"].unique())):
-       means.append(df[df["Title"] == df["Title"].unique()[i]]["Salary"].median())
+       medians.append(df[df["Title"] == df["Title"].unique()[i]]["Salary"].median())
        col.append(df["Title"].unique()[i])
 
     jobs = {
