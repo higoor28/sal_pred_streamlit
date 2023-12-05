@@ -35,7 +35,7 @@ with st.container():
     st.code(code, language='python')
 
 with st.container():
-    st.header("Droping the null values, because they're full nullable rows")
+    st.header("Droping the null values, because they're full nullable rows:")
 
     code = '''
     df[df["Gender"].isnull()]
@@ -54,7 +54,7 @@ with st.container():
 
 with st.container():
 
-    st.header("Transformating Age, Years of XP and Salary columns to int64 format")
+    st.header("Transformating Age, Years of XP and Salary columns to int64 format:")
 
     code='''
     df["Age"] = df["Age"].astype(np.int64)
@@ -69,7 +69,7 @@ with st.container():
 
 with st.container():
 
-    st.header("Replacing gender for integer values")
+    st.header("Replacing gender for integer values:")
     st.markdown("1-Male, 2-Female")
     code='''
     df["Gender"].replace({"Male":1,"Female":2},inplace=True)
@@ -97,7 +97,7 @@ with st.container():
 
 with st.container():
     st.markdown("We've a lot of same titles for diferent works like Director of Engineering and Director oh HR.")
-    st.markdown("Both are Directors, so we'll try to find a correlation between these titles and the salaries")
+    st.markdown("Both are directors, so we'll try to find a correlation between these titles and the salaries")
     st.markdown("The same logic will be applied to the seniority, because we've a lot of juniors and seniors in the dataset")
     code='''
     df["Job Title"].unique()
@@ -111,7 +111,7 @@ with st.container():
     df[df["Job Title"] == "Director of Engineering"]
 
 with st.container():
-    st.header("Creating a function that takes the Job Title column and returns the Junior or Senior seniority")
+    st.header("Creating a function that takes the Job Title column and returns the Junior or Senior seniority:")
     st.caption("There are some Job title that don't have that information, so for that will be nullable values")
     code='''
     def seniority(title):
@@ -131,7 +131,7 @@ with st.container():
             return "Senior"
 
 with st.container():
-    st.header("Applying the seniority funcion to Job Titles and creating a column with that information")
+    st.header("Applying the seniority funcion to Job Titles and creating a column with that information:")
     code='''
     df["Seniority"] = df["Job Title"].apply(seniority)
          '''
@@ -140,7 +140,7 @@ with st.container():
     df["Seniority"] = df["Job Title"].apply(seniority)
 
 with st.container():
-    st.header("Now we'll solve the nullable values in the seniority column newly created")
+    st.header("Now we'll solve the nullable values in the seniority column newly created:")
     st.markdown("For most companies, who got 5 or less years of experience is junior, between 5 and 10 is medior, and 10+ is senior ")
     code='''
     for row in range(len(df["Seniority"])):
@@ -164,7 +164,7 @@ with st.container():
                 df["Seniority"][row] = "Senior"
 
 with st.container():
-    st.header("Creating a function that takes the job title and returns the position in company")
+    st.header("Creating a function that takes the job title and returns the position in company:")
     st.markdown("Ex: Director or manager")
     code='''
     def position(entry):
@@ -415,7 +415,7 @@ with st.container():
     df
 with st.container():
 
-    st.header("Making an astype in Title column to guarantee those values are integers.")
+    st.header("Making an astype in Title column to guarantee those values are integers: ")
     code='''
     df["Title"] = df["Title"].astype(np.int64)
     '''
@@ -425,7 +425,7 @@ with st.container():
 
 with st.container():
 
-    st.header("Replacing the seniority titles to integers too ")
+    st.header("Replacing the seniority titles to integers too: ")
     code='''
     df["Seniority"].replace({"Senior":3,"Medior":2,"Junior":1},inplace=True)
     '''
@@ -443,7 +443,7 @@ with st.container():
 
 with st.container():
 
-    st.header("Making a correlation between the values")
+    st.header("Making a correlation between the values:")
     code='''
     corr = df.corr(method="pearson",numeric_only=True)
     mask = np.triu(corr)
@@ -462,7 +462,7 @@ with st.container():
 
 with st.container():
 
-    st.header("Boxplots for see outliers")
+    st.header("Boxplots for see outliers: ")
     code='''
     fig, ax = plt.subplots()
     sns.boxplot(data=corr,ax=ax)
@@ -483,7 +483,7 @@ with st.container():
 
 with st.container():
 
-    st.header("Making a prediction of the variables for salaries")
+    st.header("Making a prediction of the variables for salaries: ")
     code='''
     label1 = (column) # <- Is just put the name of correlated column in that variable for make the prediction 
     label2 = "Salary"
