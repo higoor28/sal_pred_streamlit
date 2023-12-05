@@ -522,7 +522,10 @@ with st.container():
     rmse = np.sqrt(mse)
     r2 = metrics.r2_score(y_train,y_pred_train1)
     print(f"For {label1} x {label2}:\n")
-    print(f"Mae: {mae}\nMse: {mse}\nRmse: {rmse}\nR2: {r2}")
+    print(f"Mae: {mae}")
+    print(f"Mse: {mse}")
+    print(f"Rmse: {rmse}")
+    print(f"R2: {r2}")
 
     plt.tight_layout()
     plt.show()
