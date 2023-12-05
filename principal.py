@@ -218,7 +218,7 @@ with st.container():
     col = []
     means = []
     for i in range (len(df["Title"].unique())):
-        means.append(df[df["Title"] == df["Title"][i]]["Salary"].mean()):
+        means.append(df[df["Title"] == df["Title"][i]]["Salary"].mean())
         col.append(df["Title"].unique()[i])
 
 
