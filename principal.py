@@ -374,13 +374,13 @@ with st.container():
     '''
     st.code(code, language='python')
 
-    fig, ax = plt.subplots(ncols=2,figsize=(10,10))
-    sns.histplot(data=df,x="Title",ax=ax[0])
-    sns.histplot(data=df,x="Gender",ax=ax[1])
-    ax[0].set_title("Frequency of jobs:")
-    ax[0].set_xticks(np.arange(0,(len(df_jobs["Job"]))),df_jobs["Job"],rotation=90)
-    ax[1].set_title("Frequency of gender:")
-    ax[1].set_xticks([1,2],["Male","Female"])
+    fig, ax = plt.subplots(figsize=(5,5))
+    sns.histplot(data=df,x="Title",ax=ax)
+    #sns.histplot(data=df,x="Gender",ax=ax)
+    ax.set_title("Frequency of jobs:")
+    ax.set_xticks(np.arange(0,(len(df_jobs["Job"]))),df_jobs["Job"],rotation=90)
+    #ax[1].set_title("Frequency of gender:")
+    #ax[1].set_xticks([1,2],["Male","Female"])
     st.pyplot(fig)
 with st.container():
     st.header("Seeing dataframe:")
