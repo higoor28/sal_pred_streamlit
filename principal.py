@@ -365,7 +365,7 @@ with st.container():
     code='''
     fig, ax = plt.subplots(figsize=(5,5),nrows=2)
     sns.histplot(data=df,x="Title",y="Salary",ax=ax[0])
-    sns.histplot(data=df,x="Title",y="Salary",ax=ax[1])
+    sns.histplot(data=df,x="Gender",y="Salary",ax=ax[1])
     ax[0].set_title("Frequency of jobs:")
     ax[0].set_xticks(np.arange(0,(len(df_jobs["Job"]))),df_jobs["Job"],rotation=90)
     ax[1].set_title("Frequency of gender:")
