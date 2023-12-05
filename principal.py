@@ -358,30 +358,6 @@ with st.container():
 with st.container():
     st.markdown("The median and the mean are almost equivalent.Therefore, there are few outliers in the dataframe. But this will be shown later in the boxplots below")
     st.markdown("So, for our model, make no diference to use median or mean, by the way, we'll use median.")
-
-with st.container():
-    st.markdown("Now, let's see the frequency of titles.")
-with st.container():
-    code='''
-    fig, ax = plt.subplots(figsize=(5,5))
-    sns.histplot(data=df,x="Title",y="Salary",ax=ax)
-    sns.histplot(data=df,x="Gender",y="Salary",ax=ax[1])
-    ax[0].set_title("Frequency of jobs:")
-    ax[0].set_xticks(np.arange(0,(len(df_jobs["Job"]))),df_jobs["Job"],rotation=90)
-    ax[1].set_title("Frequency of gender:")
-    ax[1].set_xticks([1,2],["Male","Female"])
-    st.pyplot(fig)
-    '''
-    st.code(code, language='python')
-
-    fig, ax = plt.subplots(figsize=(5,5))
-    sns.histplot(data=df,x="Title")
-    #sns.histplot(data=df,x="Gender",ax=ax)
-    plt.title("Frequency of jobs:")
-    plt.xticks(np.arange(0,(len(df_jobs["Job"]))),df_jobs["Job"],rotation=90)
-    #ax[1].set_title("Frequency of gender:")
-    #ax[1].set_xticks([1,2],["Male","Female"])
-    st.pyplot(fig)
 with st.container():
     st.header("Seeing dataframe:")
     code='''
