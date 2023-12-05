@@ -246,7 +246,7 @@ with st.container():
         "Mean":means,
     }
     df_jobs = pd.DataFrame(jobs)
-    df_jobs = df_jobs.sort_values(by="Mean").reset_index(drop=True)
+    #df_jobs = df_jobs.sort_values(by="Mean").reset_index(drop=True)
 with st.container():
     st.markdown("Let's comparate some values of principal dataframe with the means of the new dataframe. ")
     code='''
