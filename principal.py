@@ -316,10 +316,10 @@ with st.container():
     st.markdown("Analysing some features:")
     st.markdown("Plot of the salary per title using gender as comparator")
     st.bar_chart(df, x="Title", y="Salary", color="Gender")
-    st.info('Remember: 1-Male,2-Female',icon="i")
+    st.markdown('Remember: 1-Male,2-Female')
     st.markdown("Plot of the salary per title using education level as comparator")
     st.bar_chart(df, x="Title", y="Salary", color="Education Level")
-    st.info('Remember: 1-Bachelors,2-Masters,3-PhD',icon="i")
+    st.markdown('Remember: 1-Bachelors,2-Masters,3-PhD')
     st.markdown("Plot of the salary per title using years of experience as comparator")
     st.bar_chart(df, x="Title", y="Salary", color="Years of Experience")
 
