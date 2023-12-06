@@ -313,7 +313,7 @@ with st.container():
     st.write(df[df["Title"] == option]["Salary"].mean())
     df_jobs[df_jobs["Job"] == option]["Mean"]
 with st.container():
-    st.markdown("Analysing some features:")
+    st.header("Analysing some features:")
     st.markdown("Plot of the salary per title using gender as comparator")
     st.bar_chart(df, x="Title", y="Salary", color="Gender")
     st.markdown('Remember: 1-Male,2-Female')
