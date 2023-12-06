@@ -312,7 +312,12 @@ with st.container():
     df[df["Title"] == option]
     st.write(df[df["Title"] == option]["Salary"].mean())
     df_jobs[df_jobs["Job"] == option]["Mean"]
-
+    st.markdown("Plot of the option chosen above by gender")
+    st.bar_chart(df, x="Title", y="Salary", color="Gender")
+    st.markdown("Plot of the option chosen above by education level")
+    st.bar_chart(df, x="Title", y="Salary", color="Education Level")
+    st.markdown("Plot of the option chosen above by years of xp:")
+    st.bar_chart(df, x="Title", y="Salary", color="Years of Experience")
 
 with st.container():
     st.markdown("The values appear to match, so we will continue our analysis")
