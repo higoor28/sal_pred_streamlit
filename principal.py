@@ -314,6 +314,7 @@ with st.container():
     df_jobs[df_jobs["Job"] == option]["Mean"]
 with st.container():
     st.header("Analysing some features:")
+    st.markdown("The values of salary below mean the sum of all salaries for make a comparison between the group and the total of salary they receive:")
     st.markdown("Plot of the salary per title using gender as comparator")
     st.bar_chart(df, x="Title", y="Salary", color="Gender")
     st.markdown('Remember: 1-Male,2-Female')
